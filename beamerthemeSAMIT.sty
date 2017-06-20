@@ -35,12 +35,15 @@
 \addtobeamertemplate{block begin}{}{\vspace{-1mm}}
 \addtobeamertemplate{block example begin}{}{\vspace{-1mm}}
 \addtobeamertemplate{block alerted begin}{}{\vspace{-1mm}}
-\addtobeamertemplate{frametitle}{}{%
-\vspace{2mm}
-%\insertframenumber/\inserttotalframenumber
-\begin{textblock*}{50mm}(.85\textwidth,.84\textheight)
-\includegraphics[scale=0.3]{logo.pdf}
-\end{textblock*}}
+\IfFileExists{logo.pdf}{
+  \addtobeamertemplate{frametitle}{}{%
+    \vspace{2mm}
+
+    \begin{textblock*}{50mm}(.85\textwidth,.84\textheight)
+      \includegraphics[scale=0.3]{logo.pdf}
+    \end{textblock*}
+  }
+}{}
 
 % フォントファミリー設定
 % 英文をサンセリフ体に
@@ -60,6 +63,8 @@
 \setbeamerfont{frametitle}{size=\huge,series=\bfseries}
 % タイトルは太字
 \setbeamerfont{title}{size=\Large}
+% ブロックタイトルは太字
+\setbeamerfont{block title}{size=\LARGE}
 % フォントサイズ設定
 % 日付は小文字
 \setbeamerfont{date}{size=\small}
